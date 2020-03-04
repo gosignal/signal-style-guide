@@ -22,21 +22,21 @@
 - [css in javascript](https://github.com/airbnb/javascript/tree/master/css-in-javascript) use this styleguide.
   ```json
   {
-      "presets": ["airbnb"],
-      "plugins": [
-          [
-          "module-resolver",
-          {
-              "root": ["./"],
-              "extensions": [".js", ".jsx"],
-              "alias": {
-              "*": "./src/*",
-              "~components/*": "./src/components/*",
-              }
+    "presets": ["airbnb"],
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "root": ["./"],
+          "extensions": [".js", ".jsx"],
+          "alias": {
+            "*": "./src/*",
+            "~components/*": "./src/components/*"
           }
-          ]
-      }
-    }
+        }
+      ]
+    ]
+  }
   ```
   _*note*_ read more [here](https://github.com/airbnb/babel-preset-airbnb)
 
