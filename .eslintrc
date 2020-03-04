@@ -1,0 +1,20 @@
+{
+  "extends": ["prettier", "airbnb"],
+  "plugins": ["spellcheck", "prettier", "markdown"],
+  "rules": {
+    "prettier/prettier": "error",
+    "spellcheck/spell-checker": [
+      1,
+      {
+        "comments": true,
+        "strings": true,
+        "identifiers": true,
+        "lang": "en_US",
+        "skipWords": ["dict", "aff", "hunspellchecker", "hunspell", "utils"],
+        "skipIfMatch": ["http://[^s]*"],
+        "skipWordIfMatch": ["^foobar.*$"],
+        "minLength": 3
+      }
+    ]
+  }
+}

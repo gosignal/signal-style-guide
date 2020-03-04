@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "An attempt at comprehensive global guides to working on/with/around any products that Signal touches. Heavily influcenced off the Airbnb guide.",
   "scripts": {
-    "preinstall": "npm run install:config && npm run install:config:base",
-    "postinstall": "rm -rf node_modules/markdownlint-cli/node_modules/markdownlint",
-    "lint": "markdownlint --config linters/.markdownlint.json README.md */README.md"
+    "lint": "eslint --fix *.md"
   },
   "repository": {
     "type": "git",
@@ -29,8 +27,16 @@
     "url": "https://github.com/gosignal/signal-style-guide/issues"
   },
   "homepage": "https://github.com/gosignal/signal-style-guide",
-  "devDependencies": {
-    "markdownlint": "^0.19.0",
-    "markdownlint-cli": "^0.21.0"
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-markdown": "^1.0.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "eslint-plugin-spellcheck": "^0.0.14"
   }
 }

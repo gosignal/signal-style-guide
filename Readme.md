@@ -2,7 +2,7 @@
 
 > very much a WIP...
 
-- An attempt at comprehensive global guides to working on / with / around any products that [Signal](http://fullsignal.co) touches. Heavily influcenced off the Airbnb guide.
+- An attempt at comprehensive global guides to working on / with / around any products that [Signal](http://fullsignal.co) touches. Heavily influenced from the Airbnb guide.
 
 ## A few notes
 
