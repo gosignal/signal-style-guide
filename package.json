@@ -1,0 +1,36 @@
+{
+  "name": "signal-style-guide",
+  "version": "1.0.0",
+  "description": "An attempt at comprehensive global guides to working on/with/around any products that Signal touches. Heavily influcenced off the Airbnb guide.",
+  "scripts": {
+    "preinstall": "npm run install:config && npm run install:config:base",
+    "postinstall": "rm -rf node_modules/markdownlint-cli/node_modules/markdownlint",
+    "lint": "markdownlint --config linters/.markdownlint.json README.md */README.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gosignal/signal-style-guide.git"
+  },
+  "keywords": [
+    "style guide",
+    "lint",
+    "signal",
+    "es6",
+    "es2015",
+    "es2016",
+    "es2017",
+    "es2018",
+    "react",
+    "jsx"
+  ],
+  "author": "William Kasel <william@fullsignal.co> (https://twitter.com/wkasel)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gosignal/signal-style-guide/issues"
+  },
+  "homepage": "https://github.com/gosignal/signal-style-guide",
+  "devDependencies": {
+    "markdownlint": "^0.19.0",
+    "markdownlint-cli": "^0.21.0"
+  }
+}
