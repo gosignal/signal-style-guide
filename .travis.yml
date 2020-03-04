@@ -1,26 +1,12 @@
-# Travis CI config
-# http://docs.travis-ci.com/user/languages/javascript-with-nodejs/
-
-sudo: required
 language: node_js
 node_js:
   - "12"
-
-services:
-  - docker
-
-branches:
-  only:
-    - master # only run CI on the master branch
-
 before_install:
-  - yarn && yarn run bootstrap
-
+  - "nvm install-latest-npm"
+install:
+  - 'if [ -n "${PACKAGE-}" ]; then cd "packages/${PACKAGE}"; fi'
+  - 'if [ -n "${ESLINT}" ]; then npm install --no-save "eslint@${ESLINT}"; fi'
+  - 'if [ -n "${REACT_HOOKS}" ]; then npm install --no-save "eslint-plugin-react-hooks@${REACT_HOOKS}"; fi'
 script:
-  - yarn run build
-  - yarn run test
-  - yarn run docker:build
-
-after_success:
-  - ls -R1 coverage-report/lcov.info # list the files (for debugging)
-  - cat coverage-report/lcov.info | node_modules/coveralls/bin/coveralls.js # send code-coverage data to Coveralls
+  - 'if [ -n "${PREPUBLISH-}" ]; then npm run pretravis && npm run prepublish && npm run posttravis; elif [ -n "${LINT-}" ]; then npm run lint; else npm run travis; fi'
+sudo: false
