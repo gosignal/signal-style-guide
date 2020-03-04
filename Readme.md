@@ -36,6 +36,7 @@
           }
           ]
       }
+    }
   ```
   _*note*_ read more [here](https://github.com/airbnb/babel-preset-airbnb)
 
