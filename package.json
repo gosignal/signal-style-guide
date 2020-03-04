@@ -1,14 +1,8 @@
 {
-  "name": "signal-style-guide",
+  "name": "@signal/style-guide",
   "version": "1.0.0",
+  "private": true,
   "description": "An attempt at comprehensive global guides to working on/with/around any products that Signal touches. Heavily influcenced off the Airbnb guide.",
-  "scripts": {
-    "lint": "eslint --fix *.md"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gosignal/signal-style-guide.git"
-  },
   "keywords": [
     "style guide",
     "lint",
@@ -21,12 +15,46 @@
     "react",
     "jsx"
   ],
-  "author": "William Kasel <william@fullsignal.co> (https://twitter.com/wkasel)",
-  "license": "MIT",
+  "homepage": "https://github.com/gosignal/signal-style-guide",
   "bugs": {
     "url": "https://github.com/gosignal/signal-style-guide/issues"
   },
-  "homepage": "https://github.com/gosignal/signal-style-guide",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gosignal/signal-style-guide.git"
+  },
+  "license": "MIT",
+  "author": "William Kasel <william@fullsignal.co> (https://twitter.com/wkasel)",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "packages/**/webpack-dev-server",
+      "**/babel-loader",
+      "**/babel-jest"
+    ]
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "clean": "./scripts/cleanup.sh && lerna clean && yarn cache clean",
+    "lint": "eslint --fix *.md",
+    "prettier": "prettier --write \"./packages/**/*.{js,json,md,yml}\"",
+    "sort-pkg": "sort-package-json \"package.json\" \"packages/*/package.json\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "packages/**/*.{js,md,yml}": [
+      "prettier --write",
+      "eslint --fix",
+      "sort-pkg",
+      "git add"
+    ]
+  },
   "dependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
@@ -37,6 +65,10 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^2.5.0",
-    "eslint-plugin-spellcheck": "^0.0.14"
+    "eslint-plugin-spellcheck": "^0.0.14",
+    "husky": "^4.2.3",
+    "learna": "^1.0.1",
+    "lint-staged": "^10.0.8",
+    "sort-package-json": "^1.40.0"
   }
 }
