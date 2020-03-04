@@ -51,8 +51,7 @@
     "packages/**/*.{js,md,yml}": [
       "prettier --write",
       "eslint --fix",
-      "sort-pkg",
-      "git add"
+      "sort-pkg"
     ]
   },
   "dependencies": {
